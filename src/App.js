@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QrReader from "react-qr-reader";
 import "antd/dist/antd.css";
+import { ScanOutlined } from "@ant-design/icons";
 
 import { Input, Modal, Button } from "antd";
 class App extends React.Component {
@@ -38,22 +39,28 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div style={{ width: "300px" }}>
-          <Input placeholder="click to scan " onClick={this.showModal} />
-          {/* <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        > */}
-          <QrReader
-            delay={300}
-            onError={this.handleError}
-            onScan={this.handleScan}
-            style={{ width: "100%" }}
+        <div style={{ margin: "auto" }}>
+          <Input
+            placeholder="click to scan "
+            style={{ width: "200px" }}
+            value={this.state.result}
           />
-          <p>{this.state.result}</p>
-          {/* </Modal> */}
+          <Button icon={<ScanOutlined />} onClick={this.showModal} />
+
+          <Modal
+            title="Scan QR Code"
+            visible={this.state.visible}
+            onOk={this.handleOk}
+            onCancel={this.handleCancel}
+          >
+            <QrReader
+              delay={300}
+              onError={this.handleError}
+              onScan={this.handleScan}
+              style={{ width: "100%" }}
+            />
+            <p>{this.state.result}</p>
+          </Modal>
         </div>
       </>
     );

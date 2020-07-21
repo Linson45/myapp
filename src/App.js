@@ -35,7 +35,11 @@ class App extends React.Component {
   handleError = (err) => {
     console.error(err);
   };
-
+  InputTyped = (event) => {
+    this.setState({
+      result: event.target.value,
+    });
+  };
   render() {
     return (
       <>
@@ -43,6 +47,7 @@ class App extends React.Component {
           <Input
             placeholder="click to scan "
             style={{ width: "200px" }}
+            onChange={this.InputTyped}
             value={this.state.result}
           />
           <Button icon={<ScanOutlined />} onClick={this.showModal} />

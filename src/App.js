@@ -38,13 +38,14 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Input placeholder="click to scan " onClick={this.showModal} />
-        <Modal
+        <div style={{ width: "300px" }}>
+          <Input placeholder="click to scan " onClick={this.showModal} />
+          {/* <Modal
           title="Basic Modal"
           visible={this.state.visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
-        >
+        > */}
           <QrReader
             delay={300}
             onError={this.handleError}
@@ -52,7 +53,8 @@ class App extends React.Component {
             style={{ width: "100%" }}
           />
           <p>{this.state.result}</p>
-        </Modal>
+          {/* </Modal> */}
+        </div>
       </>
     );
   }

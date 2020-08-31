@@ -27,6 +27,7 @@ class App extends React.Component {
   };
   handleScan = (data) => {
     if (data) {
+      console.log("data pass",data);
       this.setState({
         result: data,
       });
